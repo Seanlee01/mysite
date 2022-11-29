@@ -1,0 +1,35 @@
+---
+title: "Sean Lee"
+about:
+  template: jolla
+  image: IMG_9260.JPG
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com
+    - icon: github
+      text: Github
+      href: https://github.com/Seanlee01
+    - text: Instagram
+      href: https://www.instagram.com/___sean___lee/
+---
+
+Hi, I'm Sean and I'm student at the George Washington University majoring in Journalism & Mass Comm and Business. 
+
+## Education
+
+George Washington University (currently enrolled) - Grad Date: May 2024
+
+## Work Experience
+
+Targeted Victory
+
+Venture Strategic 
+
+## Skills
+
+Canva 
+
+Agorapulse 
+
+Asana
