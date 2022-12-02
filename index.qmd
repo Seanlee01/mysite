@@ -14,7 +14,7 @@ about:
       href: https://www.instagram.com/___sean___lee/
 ---
 
-Hi, I'm Sean and I'm student at the George Washington University majoring in Journalism & Mass Comm and Business. 
+Hi, I'm Sean and I'm student at the George Washington University majoring in Journalism & Mass Comm and Business.
 
 ## Education
 
@@ -24,12 +24,12 @@ George Washington University (currently enrolled) - Grad Date: May 2024
 
 Targeted Victory
 
-Venture Strategic 
+Venture Strategic
 
 ## Skills
 
-Canva 
+Canva
 
-Agorapulse 
+Agorapulse
 
 Asana
