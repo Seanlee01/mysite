@@ -3,6 +3,13 @@ project:
   output-dir: docs
 
 website:
+  page-footer: 
+    left: "Copyright 2022, Testy R. Testman" 
+    right: 
+      - icon: github
+        href: https://github.com/Seanlee01
+      - icon: twitter 
+        href: https://twitter.com/Seanlee2001
   title: "Sean's website"
   navbar:
     left:
@@ -10,6 +17,8 @@ website:
         text: Home
       - about.qmd
       - portfolio.qmd
+      - walkthrough.qmd
+    
 format:
   html:
     theme: cosmo
