@@ -15,7 +15,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: https://www.google.com/
+      - href: https://github.com/Seanlee01/mysite/blob/main/Sean's%20Resume%20(2022)%20v.3.pdf
         text: Resume
       - about.qmd
       - portfolio.qmd
