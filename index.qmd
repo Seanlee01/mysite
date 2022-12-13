@@ -12,6 +12,8 @@ about:
       href: https://github.com/Seanlee01
     - text: Instagram
       href: https://www.instagram.com/___sean___lee/
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/sean-lee-06baa71b5/
 ---
 
 Hi, I'm Sean and I'm student at the George Washington University majoring in Journalism & Mass Comm and Business.

@@ -23,9 +23,19 @@ Hi there this is my portfolio page!
 ### Social Media Post Examples
 
 | Col1                                                                                                                                       | Col2                                                                           |
-|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+|---------------------------------------------|---------------------------|
 | [![](images/Shrek%20-%20Mayoral%20Basics%20Post_CLA_2021%E2%80%9D.png){fig-align="left" width="366"}](https://www.instagram.com/causeusa/) | ![](images/Screen%20Shot%202022-10-11%20at%203.01.24%20PM-01.png){width="351"} |
 
 ### Professional work
 
 My work is below:
+
+
+Now we're going to find the high mileage cars, 
+First we'll filter for mileage above 25mpg, and then we're sorting it so that the shows at top.
+```{r}
+mtcars %>% 
+  filter(mpg > 25) %>% 
+  arrange(desc)mpg))
+```
+
