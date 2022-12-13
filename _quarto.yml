@@ -20,6 +20,8 @@ website:
       - about.qmd
       - portfolio.qmd
       - walkthrough.qmd
+      - professionalwork.qmd
+      - News Writing Piece .qmd
     
 format:
   html:
