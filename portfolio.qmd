@@ -2,35 +2,20 @@
 title: "Portfolio"
 ---
 
-Hi there this is my portfolio page!
+Hi here is my portfolio page!
 
 -   [A promising path in politics](https://www.youtube.com/watch?v=s38N27Mu2OU&t=1024s)
 
--   <https://www.youtube.com/watch?v=lKLtAx1ysjg&t=50s&ab_channel=GW-TV>
+-   [White House Correspondent Episode 1](https://www.youtube.com/watch?v=lKLtAx1ysjg&t=50s&ab_channel=GW-TV){.uri}
 
--   <https://www.youtube.com/watch?v=xcEVkuG32bo&t=2s&ab_channel=GW-TV>
+-   [White House Correspondent Episode 2](https://www.youtube.com/watch?v=xcEVkuG32bo&t=2s&ab_channel=GW-TV){.uri}
 
--   <https://www.worldjournal.com/wj/story/121363/5689286>
+-   [Energy Conservation Blog](https://docs.google.com/document/d/1Vljh1RUeIFJC2I_pblzEntx-I_CbFrAZfe3c_LhuElg/edit){.uri}
 
--   <https://docs.google.com/document/d/1Vljh1RUeIFJC2I_pblzEntx-I_CbFrAZfe3c_LhuElg/edit>
+-   [My Social Media example posts](https://drive.google.com/drive/folders/1lTCtDq_QPGvsps8nPCtACOLYLSzzzI8f?usp=sharing){.uri}
 
--   <https://drive.google.com/drive/folders/1lTCtDq_QPGvsps8nPCtACOLYLSzzzI8f?usp=sharing>
+-   [Request For Proposal (RFP) example](https://docs.google.com/presentation/d/1k4FhTz0Dl1m8VEl-JrA0JZtCbXORnE_h3FIwjW9lZIo/edit#slide=id.g105e3c133d0_1_59){.uri}
 
--   <https://docs.google.com/presentation/d/1k4FhTz0Dl1m8VEl-JrA0JZtCbXORnE_h3FIwjW9lZIo/edit#slide=id.g105e3c133d0_1_59>
+-   [RFP Outline](https://docs.google.com/document/d/1S7l9Ox87jpBTHGVi-Sv4r_yCJ21pQxVhzAhqvUHhDDs/edit){.uri}
 
--   <https://docs.google.com/document/d/1S7l9Ox87jpBTHGVi-Sv4r_yCJ21pQxVhzAhqvUHhDDs/edit>
-
-### Social Media Post Examples
-
-| Col1                                                                                                                                       | Col2                                                                           |
-|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| [![](images/Shrek%20-%20Mayoral%20Basics%20Post_CLA_2021%E2%80%9D.png){fig-align="left" width="366"}](https://www.instagram.com/causeusa/) | ![](images/Screen%20Shot%202022-10-11%20at%203.01.24%20PM-01.png){width="351"} |
-
-### Professional work
-
-My work is below:
-
-Now we're going to find the high mileage cars, First we'll filter for mileage above 25mpg, and then we're sorting it so that the shows at top.
-
-```{r}
-```
+-   [Crisis Communications Example](https://docs.google.com/document/d/10gdSe8mZ7rvYyoOZbfQuu7jxeYOnBkrqff_1TvsZqH4/edit)

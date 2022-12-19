@@ -1,0 +1,92 @@
+---
+title: "Virginia Election Project"
+author: "Sean Lee"
+execute:
+  echo: true
+format:
+  html:
+    self-contained: true
+    code-tools: true
+---
+
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+
+
+library(tidyverse)
+library(janitor)
+library(httr)
+library(jsonlite)
+library(kableExtra)
+library(here)
+options(scipen = 999)
+options(stringsAsFactors = FALSE)
+
+
+#load saved joined data file from previous script
+joined_vacomparison <- readRDS(here("processed_data", "joined_vacomparison.rds"))
+
+joined_vacomparison %>% 
+  mutate(
+    yungkin_pctadv_over_trump = pct_youngkin - trump_pct
+  ) %>% 
+  arrange(desc(yungkin_pctadv_over_trump)) %>%
+  head(10)
+
+```
+
+
+# Comparing Virgnia Gov vs. Prez
+
+
+Section 1
+```{r}
+#table #1
+R_Dtable <- joined_vacomparison %>% 
+  mutate(
+    D_vs_R = pct_mcauliffe - pct_youngkin,
+    Biden_vs_Trump = biden_pct - trump_pct
+  )
+```
+
+Section 2
+```{r}
+R_Dtable %>% 
+  select(locality, D_vs_R) %>% 
+  DT::datatable(rownames = FALSE,
+                options = list(searching = FALSE, paging = FALSE, dom = "tip"))
+```
+
+Section 3
+```{r}
+R_Dtable %>% 
+  select(locality, Biden_vs_Trump) %>% 
+  DT::datatable(rownames = FALSE, 
+                options = list(searching = FALSE, paging = FALSE, dom = "tip"))
+```
+Section 4 
+```{r}
+R_Dtable %>% 
+  select(locality, Biden_vs_Trump) %>% 
+  arrange(desc(Biden_vs_Trump)) %>%  
+  DT::datatable(rownames = FALSE,
+                options = list(searching = FALSE, paging = FALSE, dom = "tip"))
+```
+Section 5 
+```{r}
+R_Dtable %>% 
+  select(locality, pct_youngkin) %>% 
+  arrange(desc(pct_youngkin)) %>% 
+  DT::datatable(rownames = FALSE,
+                options = list(searching = FALSE, paging = FALSE, dom = "tip"))
+```
+
+Section 6 
+```{r}
+R_Dtable %>% 
+  select(locality, pct_mcauliffe) %>% 
+  arrange(desc(pct_mcauliffe)) %>% 
+  DT::datatable(rownames = FALSE,
+                options = list(searching = FALSE, paging = FALSE, dom = "tip"))
+```
+

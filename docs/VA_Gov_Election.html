@@ -8,7 +8,7 @@
 
 <meta name="author" content="Sean Lee">
 
-<title>Sean’s website - Analysis Walkthrough</title>
+<title>Sean’s website - Virginia Election Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3876,6 +3876,16 @@ vertical-align: -.125em;
   }
 }</script>
 
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.26/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
 
 <style type="text/css">
 </style>
@@ -3902,13 +3912,13 @@ vertical-align: -.125em;
     <a class="nav-link" href="https://github.com/Seanlee01/mysite/blob/main/Sean&#39;s%20Resume%20(2022)%20v.3.pdf">Resume</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./VA_Gov_Election.html">Virginia Election Project</a>
+    <a class="nav-link active" href="./VA_Gov_Election.html" aria-current="page">Virginia Election Project</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./portfolio.html">Portfolio</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./walkthrough.html" aria-current="page">Analysis Walkthrough</a>
+    <a class="nav-link" href="./walkthrough.html">Analysis Walkthrough</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./professionalwork.html">Professional Work</a>
@@ -3927,14 +3937,20 @@ vertical-align: -.125em;
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#comparing-virgnia-gov-vs.-prez" id="toc-comparing-virgnia-gov-vs.-prez" class="nav-link active" data-scroll-target="#comparing-virgnia-gov-vs.-prez">Comparing Virgnia Gov vs. Prez</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Analysis Walkthrough</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Virginia Election Project</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -3954,443 +3970,85 @@ vertical-align: -.125em;
 
 </header>
 
-<p>We’ll start by loading the libraries and install tidyverse.</p>
+<section id="comparing-virgnia-gov-vs.-prez" class="level1">
+<h1>Comparing Virgnia Gov vs. Prez</h1>
+<p>Section 1</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first we&#39;ll load our libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#make sure to install the tidyverse if it&#39;s not already installed</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
-✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-✔ readr   2.1.2      ✔ forcats 0.5.2 
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#table #1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="ot">&lt;-</span> joined_vacomparison <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">D_vs_R =</span> pct_mcauliffe <span class="sc">-</span> pct_youngkin,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Biden_vs_Trump =</span> biden_pct <span class="sc">-</span> trump_pct</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: &#39;lubridate&#39;
+<p>Section 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, D_vs_R) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 
-The following objects are masked from &#39;package:base&#39;:
+<div id="htmlwidget-c89d2ff5b38ed35082a0" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c89d2ff5b38ed35082a0">{"x":{"filter":"none","vertical":false,"data":[["ACCOMACK COUNTY","ALBEMARLE COUNTY","ALEXANDRIA CITY","ALLEGHANY COUNTY","AMELIA COUNTY","AMHERST COUNTY","APPOMATTOX COUNTY","ARLINGTON COUNTY","AUGUSTA COUNTY","BATH COUNTY","BEDFORD COUNTY","BLAND COUNTY","BOTETOURT COUNTY","BRISTOL CITY","BRUNSWICK COUNTY","BUCHANAN COUNTY","BUCKINGHAM COUNTY","BUENA VISTA CITY","CAMPBELL COUNTY","CAROLINE COUNTY","CARROLL COUNTY","CHARLES CITY COUNTY","CHARLOTTE COUNTY","CHARLOTTESVILLE CITY","CHESAPEAKE CITY","CHESTERFIELD COUNTY","CLARKE COUNTY","COLONIAL HEIGHTS CITY","COVINGTON CITY","CRAIG COUNTY","CULPEPER COUNTY","CUMBERLAND COUNTY","DANVILLE CITY","DICKENSON COUNTY","DINWIDDIE COUNTY","EMPORIA CITY","ESSEX COUNTY","FAIRFAX COUNTY","FAIRFAX CITY","FALLS CHURCH CITY","FAUQUIER COUNTY","FLOYD COUNTY","FLUVANNA COUNTY","FRANKLIN COUNTY","FRANKLIN CITY","FREDERICK COUNTY","FREDERICKSBURG CITY","GALAX CITY","GILES COUNTY","GLOUCESTER COUNTY","GOOCHLAND COUNTY","GRAYSON COUNTY","GREENE COUNTY","GREENSVILLE COUNTY","HALIFAX COUNTY","HAMPTON CITY","HANOVER COUNTY","HARRISONBURG CITY","HENRICO COUNTY","HENRY COUNTY","HIGHLAND COUNTY","HOPEWELL CITY","ISLE OF WIGHT COUNTY","JAMES CITY COUNTY","KING &amp; QUEEN COUNTY","KING GEORGE COUNTY","KING WILLIAM COUNTY","LANCASTER COUNTY","LEE COUNTY","LEXINGTON CITY","LOUDOUN COUNTY","LOUISA COUNTY","LUNENBURG COUNTY","LYNCHBURG CITY","MADISON COUNTY","MANASSAS CITY","MANASSAS PARK CITY","MARTINSVILLE CITY","MATHEWS COUNTY","MECKLENBURG COUNTY","MIDDLESEX COUNTY","MONTGOMERY COUNTY","NELSON COUNTY","NEW KENT COUNTY","NEWPORT NEWS CITY","NORFOLK CITY","NORTHAMPTON COUNTY","NORTHUMBERLAND COUNTY","NORTON CITY","NOTTOWAY COUNTY","ORANGE COUNTY","PAGE COUNTY","PATRICK COUNTY","PETERSBURG CITY","PITTSYLVANIA COUNTY","POQUOSON CITY","PORTSMOUTH CITY","POWHATAN COUNTY","PRINCE EDWARD COUNTY","PRINCE GEORGE COUNTY","PRINCE WILLIAM COUNTY","PULASKI COUNTY","RADFORD CITY","RAPPAHANNOCK COUNTY","RICHMOND COUNTY","RICHMOND CITY","ROANOKE COUNTY","ROANOKE CITY","ROCKBRIDGE COUNTY","ROCKINGHAM COUNTY","RUSSELL COUNTY","SALEM CITY","SCOTT COUNTY","SHENANDOAH COUNTY","SMYTH COUNTY","SOUTHAMPTON COUNTY","SPOTSYLVANIA COUNTY","STAFFORD COUNTY","STAUNTON CITY","SUFFOLK CITY","SURRY COUNTY","SUSSEX COUNTY","TAZEWELL COUNTY","VIRGINIA BEACH CITY","WARREN COUNTY","WASHINGTON COUNTY","WAYNESBORO CITY","WESTMORELAND COUNTY","WILLIAMSBURG CITY","WINCHESTER CITY","WISE COUNTY","WYTHE COUNTY","YORK COUNTY"],[-22.71,24.84,51.18,-49.55,-48.77,-42.57,-60.93,54.04,-56.42,-58.7,-58.63,-72.05,-53,-47.23,4.68000000000001,-69.67,-27.18,-49.83,-57.17,-15.52,-67.3,8.03,-41.02,66.89,-5.63999999999999,-4.35000000000001,-25.64,-47.48,-34.53,-67.16,-33.52,-27.52,7.5,-60.91,-27.23,19.86,-14.95,30.42,28.18,54.06,-31.42,-40.37,-14.1,-50.11,13.83,-38.21,21.02,-48.39,-57.56,-45.28,-32.13,-65.45,-35.69,5.66,-28.37,33.97,-36.94,21.44,18.47,-39.68,-49.43,-0.149999999999991,-29.1,-5.52,-30.12,-37.09,-47.12,-17.74,-75.47,24.73,11.08,-32.61,-31.58,-10.72,-40.84,9.77,21.65,13.9,-43.64,-31.96,-32.83,-5.14,-11.89,-42.52,20.55,35.69,-1.24999999999999,-28.47,-45.39,-29.64,-33.01,-58.19,-64.8,71.37,-50.96,-56.09,32.07,-54.13,-9.35,-30.03,14.81,-48.86,-9.23,-19.47,-40.49,57.66,-32,16.45,-38.25,-51.2,-69.86,-29.3,-74.17,-49.92,-65.5,-30.22,-20.37,-10.8,3.72,4.7,-0.339999999999996,1.37,-73.5,-8.02,-44.32,-58.6,-15.25,-21.56,30.05,1.84999999999999,-68.35,-64.11,-17.74]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>locality<\/th>\n      <th>D_vs_R<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"paging":false,"dom":"tip","columnDefs":[{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Section 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, Biden_vs_Trump) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 
-    date, intersect, setdiff, union</code></pre>
+<div id="htmlwidget-8ec662b024a6c854e147" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8ec662b024a6c854e147">{"x":{"filter":"none","vertical":false,"data":[["ACCOMACK COUNTY","ALBEMARLE COUNTY","ALEXANDRIA CITY","ALLEGHANY COUNTY","AMELIA COUNTY","AMHERST COUNTY","APPOMATTOX COUNTY","ARLINGTON COUNTY","AUGUSTA COUNTY","BATH COUNTY","BEDFORD COUNTY","BLAND COUNTY","BOTETOURT COUNTY","BRISTOL CITY","BRUNSWICK COUNTY","BUCHANAN COUNTY","BUCKINGHAM COUNTY","BUENA VISTA CITY","CAMPBELL COUNTY","CAROLINE COUNTY","CARROLL COUNTY","CHARLES CITY COUNTY","CHARLOTTE COUNTY","CHARLOTTESVILLE CITY","CHESAPEAKE CITY","CHESTERFIELD COUNTY","CLARKE COUNTY","COLONIAL HEIGHTS CITY","COVINGTON CITY","CRAIG COUNTY","CULPEPER COUNTY","CUMBERLAND COUNTY","DANVILLE CITY","DICKENSON COUNTY","DINWIDDIE COUNTY","EMPORIA CITY","ESSEX COUNTY","FAIRFAX COUNTY","FAIRFAX CITY","FALLS CHURCH CITY","FAUQUIER COUNTY","FLOYD COUNTY","FLUVANNA COUNTY","FRANKLIN COUNTY","FRANKLIN CITY","FREDERICK COUNTY","FREDERICKSBURG CITY","GALAX CITY","GILES COUNTY","GLOUCESTER COUNTY","GOOCHLAND COUNTY","GRAYSON COUNTY","GREENE COUNTY","GREENSVILLE COUNTY","HALIFAX COUNTY","HAMPTON CITY","HANOVER COUNTY","HARRISONBURG CITY","HENRICO COUNTY","HENRY COUNTY","HIGHLAND COUNTY","HOPEWELL CITY","ISLE OF WIGHT COUNTY","JAMES CITY COUNTY","KING &amp; QUEEN COUNTY","KING GEORGE COUNTY","KING WILLIAM COUNTY","LANCASTER COUNTY","LEE COUNTY","LEXINGTON CITY","LOUDOUN COUNTY","LOUISA COUNTY","LUNENBURG COUNTY","LYNCHBURG CITY","MADISON COUNTY","MANASSAS CITY","MANASSAS PARK CITY","MARTINSVILLE CITY","MATHEWS COUNTY","MECKLENBURG COUNTY","MIDDLESEX COUNTY","MONTGOMERY COUNTY","NELSON COUNTY","NEW KENT COUNTY","NEWPORT NEWS CITY","NORFOLK CITY","NORTHAMPTON COUNTY","NORTHUMBERLAND COUNTY","NORTON CITY","NOTTOWAY COUNTY","ORANGE COUNTY","PAGE COUNTY","PATRICK COUNTY","PETERSBURG CITY","PITTSYLVANIA COUNTY","POQUOSON CITY","PORTSMOUTH CITY","POWHATAN COUNTY","PRINCE EDWARD COUNTY","PRINCE GEORGE COUNTY","PRINCE WILLIAM COUNTY","PULASKI COUNTY","RADFORD CITY","RAPPAHANNOCK COUNTY","RICHMOND COUNTY","RICHMOND CITY","ROANOKE COUNTY","ROANOKE CITY","ROCKBRIDGE COUNTY","ROCKINGHAM COUNTY","RUSSELL COUNTY","SALEM CITY","SCOTT COUNTY","SHENANDOAH COUNTY","SMYTH COUNTY","SOUTHAMPTON COUNTY","SPOTSYLVANIA COUNTY","STAFFORD COUNTY","STAUNTON CITY","SUFFOLK CITY","SURRY COUNTY","SUSSEX COUNTY","TAZEWELL COUNTY","VIRGINIA BEACH CITY","WARREN COUNTY","WASHINGTON COUNTY","WAYNESBORO CITY","WESTMORELAND COUNTY","WILLIAMSBURG CITY","WINCHESTER CITY","WISE COUNTY","WYTHE COUNTY","YORK COUNTY"],[-9.39,33.5,62.65,-44.09,-37.74,-31.58,-46.22,63.52,-47.01,-47.5,-48.13,-68.15,-44.5,-38.87,15.03,-67.56,-13.21,-37.39,-44.07,-4.17,-62.72,19.44,-24.19,72.72,6.45,6.68,-13.63,-33.18,-23.67,-61.51,-19.9,-14.91,22.09,-58.13,-16.37,36.03,-0.600000000000001,41.86,38.32,64.13,-17.27,-34.24,-4.66999999999999,-42.13,25.58,-27.41,34.83,-40.22,-51.43,-35.51,-19.36,-61.42,-23.9,15.58,-15.08,42.17,-26.79,31.79,29.01,-29.11,-44.03,14.68,-18.37,4.84,-20.9,-21.39,-37.81,-4.59999999999999,-69.13,32.04,25.03,-22.93,-18.65,2.61,-32.01,24.16,33.07,26.62,-35.63,-15.2,-25.13,5.75,-5.2,-34.64,32.91,45.61,10.58,-15.78,-40.29,-14.91,-21.37,-50.65,-58.01,76.53,-39.84,-45.2,40.81,-44.28,5.63,-17.21,27.03,-41.45,9.05,-14.38,-25.21,67.98,-21.81,25.78,-32.35,-40.41,-63.54,-19.42,-67.81,-40.65,-56.27,-17.99,-6.78,3.27,9.9,17.32,8.32,11.95,-67.18,5.41,-35.31,-52.51,-5.1,-8.23,41.07,11.47,-61.73,-57,-6.59999999999999]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>locality<\/th>\n      <th>Biden_vs_Trump<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"paging":false,"dom":"tip","columnDefs":[{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<p>We’re going to look at some sample data from Texas on housing prices throughout the state.</p>
-<p>First, we will load the data.</p>
+<p>Section 4</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run this line below load the data for this assignment</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>impeach <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://docs.google.com/spreadsheets/d/e/2PACX-1vRh8d5JaDqBtByzNw2JZF3idaACobDhhk-p7chJoktA0HawELHFOvjQOqCpzGA4MGONvPlR7GASqW-K/pub?gid=1765341510&amp;single=true&amp;output=csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 235 Columns: 32
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: &quot;,&quot;
-chr  (19): for_impeachment, last_name, first_name, middle_name, party, state...
-dbl  (10): date_month, date_year, median_income, median_age, pct_nonwhite, p...
-date  (3): date_exact, date_approx_month, date_comb
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, Biden_vs_Trump) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Biden_vs_Trump)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div id="htmlwidget-d66361eb1999485185f1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d66361eb1999485185f1">{"x":{"filter":"none","vertical":false,"data":[["PETERSBURG CITY","CHARLOTTESVILLE CITY","RICHMOND CITY","FALLS CHURCH CITY","ARLINGTON COUNTY","ALEXANDRIA CITY","NORFOLK CITY","HAMPTON CITY","FAIRFAX COUNTY","WILLIAMSBURG CITY","PORTSMOUTH CITY","FAIRFAX CITY","EMPORIA CITY","FREDERICKSBURG CITY","ALBEMARLE COUNTY","MANASSAS PARK CITY","NEWPORT NEWS CITY","LEXINGTON CITY","HARRISONBURG CITY","HENRICO COUNTY","PRINCE WILLIAM COUNTY","MARTINSVILLE CITY","ROANOKE CITY","FRANKLIN CITY","LOUDOUN COUNTY","MANASSAS CITY","DANVILLE CITY","CHARLES CITY COUNTY","SUFFOLK CITY","GREENSVILLE COUNTY","BRUNSWICK COUNTY","HOPEWELL CITY","SUSSEX COUNTY","WINCHESTER CITY","NORTHAMPTON COUNTY","STAUNTON CITY","RADFORD CITY","SURRY COUNTY","CHESTERFIELD COUNTY","CHESAPEAKE CITY","MONTGOMERY COUNTY","PRINCE EDWARD COUNTY","VIRGINIA BEACH CITY","JAMES CITY COUNTY","STAFFORD COUNTY","LYNCHBURG CITY","ESSEX COUNTY","CAROLINE COUNTY","LANCASTER COUNTY","FLUVANNA COUNTY","WAYNESBORO CITY","NELSON COUNTY","YORK COUNTY","SPOTSYLVANIA COUNTY","WESTMORELAND COUNTY","ACCOMACK COUNTY","BUCKINGHAM COUNTY","CLARKE COUNTY","RAPPAHANNOCK COUNTY","CUMBERLAND COUNTY","NOTTOWAY COUNTY","HALIFAX COUNTY","MECKLENBURG COUNTY","NORTHUMBERLAND COUNTY","DINWIDDIE COUNTY","PRINCE GEORGE COUNTY","FAUQUIER COUNTY","SOUTHAMPTON COUNTY","ISLE OF WIGHT COUNTY","LUNENBURG COUNTY","GOOCHLAND COUNTY","SALEM CITY","CULPEPER COUNTY","KING &amp; QUEEN COUNTY","ORANGE COUNTY","KING GEORGE COUNTY","ROANOKE COUNTY","LOUISA COUNTY","COVINGTON CITY","GREENE COUNTY","CHARLOTTE COUNTY","MIDDLESEX COUNTY","RICHMOND COUNTY","HANOVER COUNTY","FREDERICK COUNTY","HENRY COUNTY","AMHERST COUNTY","MADISON COUNTY","ROCKBRIDGE COUNTY","COLONIAL HEIGHTS CITY","FLOYD COUNTY","NEW KENT COUNTY","WARREN COUNTY","GLOUCESTER COUNTY","MATHEWS COUNTY","BUENA VISTA CITY","AMELIA COUNTY","KING WILLIAM COUNTY","BRISTOL CITY","PITTSYLVANIA COUNTY","GALAX CITY","NORTON CITY","ROCKINGHAM COUNTY","SHENANDOAH COUNTY","PULASKI COUNTY","FRANKLIN COUNTY","HIGHLAND COUNTY","CAMPBELL COUNTY","ALLEGHANY COUNTY","POWHATAN COUNTY","BOTETOURT COUNTY","POQUOSON CITY","APPOMATTOX COUNTY","AUGUSTA COUNTY","BATH COUNTY","BEDFORD COUNTY","PAGE COUNTY","GILES COUNTY","WASHINGTON COUNTY","SMYTH COUNTY","WYTHE COUNTY","PATRICK COUNTY","DICKENSON COUNTY","GRAYSON COUNTY","CRAIG COUNTY","WISE COUNTY","CARROLL COUNTY","RUSSELL COUNTY","TAZEWELL COUNTY","BUCHANAN COUNTY","SCOTT COUNTY","BLAND COUNTY","LEE COUNTY"],[76.53,72.72,67.98,64.13,63.52,62.65,45.61,42.17,41.86,41.07,40.81,38.32,36.03,34.83,33.5,33.07,32.91,32.04,31.79,29.01,27.03,26.62,25.78,25.58,25.03,24.16,22.09,19.44,17.32,15.58,15.03,14.68,11.95,11.47,10.58,9.9,9.05,8.32,6.68,6.45,5.75,5.63,5.41,4.84,3.27,2.61,-0.600000000000001,-4.17,-4.59999999999999,-4.66999999999999,-5.1,-5.2,-6.59999999999999,-6.78,-8.23,-9.39,-13.21,-13.63,-14.38,-14.91,-14.91,-15.08,-15.2,-15.78,-16.37,-17.21,-17.27,-17.99,-18.37,-18.65,-19.36,-19.42,-19.9,-20.9,-21.37,-21.39,-21.81,-22.93,-23.67,-23.9,-24.19,-25.13,-25.21,-26.79,-27.41,-29.11,-31.58,-32.01,-32.35,-33.18,-34.24,-34.64,-35.31,-35.51,-35.63,-37.39,-37.74,-37.81,-38.87,-39.84,-40.22,-40.29,-40.41,-40.65,-41.45,-42.13,-44.03,-44.07,-44.09,-44.28,-44.5,-45.2,-46.22,-47.01,-47.5,-48.13,-50.65,-51.43,-52.51,-56.27,-57,-58.01,-58.13,-61.42,-61.51,-61.73,-62.72,-63.54,-67.18,-67.56,-67.81,-68.15,-69.13]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>locality<\/th>\n      <th>Biden_vs_Trump<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"paging":false,"dom":"tip","columnDefs":[{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<p>We are going to see a data file called “impeach” and see which members support impeachment or not.</p>
+<p>Section 5</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># it will load a dataframe called &quot;impeach,&quot; containing U.S. House Democrats</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and whether they supported impeachment along with when they announced such support</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, pct_youngkin) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pct_youngkin)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="htmlwidget-32f7a68006def20b7f9b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-32f7a68006def20b7f9b">{"x":{"filter":"none","vertical":false,"data":[["LEE COUNTY","SCOTT COUNTY","TAZEWELL COUNTY","BLAND COUNTY","RUSSELL COUNTY","BUCHANAN COUNTY","WISE COUNTY","CARROLL COUNTY","CRAIG COUNTY","SMYTH COUNTY","GRAYSON COUNTY","PATRICK COUNTY","WYTHE COUNTY","DICKENSON COUNTY","APPOMATTOX COUNTY","BEDFORD COUNTY","WASHINGTON COUNTY","BATH COUNTY","PAGE COUNTY","CAMPBELL COUNTY","GILES COUNTY","AUGUSTA COUNTY","POQUOSON CITY","POWHATAN COUNTY","BOTETOURT COUNTY","PITTSYLVANIA COUNTY","ROCKINGHAM COUNTY","FRANKLIN COUNTY","SHENANDOAH COUNTY","ALLEGHANY COUNTY","HIGHLAND COUNTY","BUENA VISTA CITY","AMELIA COUNTY","PULASKI COUNTY","GALAX CITY","KING WILLIAM COUNTY","BRISTOL CITY","COLONIAL HEIGHTS CITY","GLOUCESTER COUNTY","NORTON CITY","WARREN COUNTY","MATHEWS COUNTY","NEW KENT COUNTY","AMHERST COUNTY","CHARLOTTE COUNTY","MADISON COUNTY","RICHMOND COUNTY","FLOYD COUNTY","HENRY COUNTY","FREDERICK COUNTY","ROCKBRIDGE COUNTY","HANOVER COUNTY","KING GEORGE COUNTY","GREENE COUNTY","COVINGTON CITY","CULPEPER COUNTY","ORANGE COUNTY","LOUISA COUNTY","MIDDLESEX COUNTY","GOOCHLAND COUNTY","MECKLENBURG COUNTY","ROANOKE COUNTY","LUNENBURG COUNTY","FAUQUIER COUNTY","SOUTHAMPTON COUNTY","KING &amp; QUEEN COUNTY","PRINCE GEORGE COUNTY","NOTTOWAY COUNTY","SALEM CITY","ISLE OF WIGHT COUNTY","NORTHUMBERLAND COUNTY","HALIFAX COUNTY","CUMBERLAND COUNTY","DINWIDDIE COUNTY","BUCKINGHAM COUNTY","CLARKE COUNTY","ACCOMACK COUNTY","WESTMORELAND COUNTY","SPOTSYLVANIA COUNTY","RAPPAHANNOCK COUNTY","LANCASTER COUNTY","YORK COUNTY","CAROLINE COUNTY","ESSEX COUNTY","WAYNESBORO CITY","FLUVANNA COUNTY","NELSON COUNTY","STAFFORD COUNTY","LYNCHBURG CITY","PRINCE EDWARD COUNTY","RADFORD CITY","VIRGINIA BEACH CITY","JAMES CITY COUNTY","CHESAPEAKE CITY","MONTGOMERY COUNTY","CHESTERFIELD COUNTY","NORTHAMPTON COUNTY","SURRY COUNTY","HOPEWELL CITY","SUSSEX COUNTY","WINCHESTER CITY","STAUNTON CITY","BRUNSWICK COUNTY","SUFFOLK CITY","GREENSVILLE COUNTY","DANVILLE CITY","CHARLES CITY COUNTY","MANASSAS CITY","LOUDOUN COUNTY","FRANKLIN CITY","MARTINSVILLE CITY","PRINCE WILLIAM COUNTY","ROANOKE CITY","HENRICO COUNTY","EMPORIA CITY","NEWPORT NEWS CITY","FREDERICKSBURG CITY","HARRISONBURG CITY","MANASSAS PARK CITY","LEXINGTON CITY","ALBEMARLE COUNTY","FAIRFAX CITY","WILLIAMSBURG CITY","FAIRFAX COUNTY","PORTSMOUTH CITY","HAMPTON CITY","NORFOLK CITY","ALEXANDRIA CITY","ARLINGTON COUNTY","FALLS CHURCH CITY","RICHMOND CITY","CHARLOTTESVILLE CITY","PETERSBURG CITY"],[87.6,86.89,86.59,85.78,84.83,84.72,83.9,83.45,83.16,82.55,82.48,82.14,81.78,80.31,80.26,79.1,79.08,79.04,78.92,78.39,78.33,77.93,77.75,76.86,76.3,75.31,75.31,74.82,74.64,74.52,74.37,74.33,74.19,74.06,73.94,73.33,73.3,73.27,72.37,71.99,71.85,71.56,71.02,71,70.26,70.17,69.9,69.75,69.61,68.9,68.89,68.18,68.09,67.42,66.82,66.47,66.23,66.04,65.97,65.87,65.81,65.7,65.67,65.46,64.9,64.77,64.65,64.57,64.29,64.26,63.95,63.9,63.38,63.33,63.29,62.54,61.08,60.55,59.84,59.45,58.71,58.59,57.35,57,56.94,56.75,55.46,55,54.89,54.4,54.03,53.62,52.5,52.43,51.96,51.76,50.34,50,49.31,49.02,48.69,47.49,47.34,47.26,46.98,45.92,45.76,44.67,44.17,42.83,42.48,42.2,41.25,40.24,39.47,39.14,38.77,38.65,38.34,37.3,37.21,35.56,34.54,34.47,33.34,32.48,31.45,24.02,22.63,22.63,19.61,15.99,13.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>locality<\/th>\n      <th>pct_youngkin<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"paging":false,"dom":"tip","columnDefs":[{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
-<p>Now use the R codes we have learned throughout class. Note: You are going to see this symbol “%&gt;%.” This symbol is a pipe operator we use in R. It takes the output of one function and passes it into another function as an argument. This allows us to link a sequence of analysis steps.</p>
+</div>
+<p>Section 6</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FOR EACH OF THE QUESTIONS BELOW, WRITE YOUR WORKING R CODE TO RETURN THE REQUESTED RESULTS</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># USE COMMENTS (PREFACED BY THE #) TO ACCOMPANY YOUR CODE TO EXPLAIN WHAT YOU&#39;RE DOING </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># FOR EACH STEP</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>From the data we are given, we will first find for the members who have favored in impeachment. Therefore, we will first write impeach that is the datasheet we will be using for this whole exercise. After that we will use the filter option and put “no” for impeachment and run it.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) The column &quot;for_impeachment&quot; indicates whether the member has publicly called for</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># an impeachment inquiry. Filter to return only the ones where the answer is NO.    </span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 32
-   for_impea…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
- 1 NO          Allred  Colin   &lt;NA&gt;    D     TX    32      NA         NA        
- 2 NO          Brindi… Anthony &lt;NA&gt;    D     NY    22      NA         NA        
- 3 NO          Bustos  Cheri   &lt;NA&gt;    D     IL    17      NA         NA        
- 4 NO          Cuellar Henry   &lt;NA&gt;    D     TX    28      NA         NA        
- 5 NO          Cunnin… Joe     &lt;NA&gt;    D     SC    1       NA         NA        
- 6 NO          Davids  Sharice &lt;NA&gt;    D     KS    3       NA         NA        
- 7 NO          Gabbard Tulsi   &lt;NA&gt;    D     HI    2       NA         NA        
- 8 NO          Golden  Jared   &lt;NA&gt;    D     ME    2       NA         NA        
- 9 NO          Gonzal… Vicente &lt;NA&gt;    D     TX    15      NA         NA        
-10 NO          Horn    Kendra  &lt;NA&gt;    D     OK    5       NA         NA        
-# … with 16 more rows, 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>We do the same thing here with question #1, but we add Republican party that Trump won in 2016 and run it.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Filter to return only results where a member is both against impeachment, and comes from a </span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># district that President Trump won in 2016 (which is noted in the &quot;p16winningparty&quot; column)</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(p16winningparty <span class="sc">==</span> <span class="st">&quot;R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 15 × 32
-   for_impea…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
- 1 NO          Brindi… Anthony &lt;NA&gt;    D     NY    22      NA         NA        
- 2 NO          Bustos  Cheri   &lt;NA&gt;    D     IL    17      NA         NA        
- 3 NO          Cunnin… Joe     &lt;NA&gt;    D     SC    1       NA         NA        
- 4 NO          Golden  Jared   &lt;NA&gt;    D     ME    2       NA         NA        
- 5 NO          Horn    Kendra  &lt;NA&gt;    D     OK    5       NA         NA        
- 6 NO          Kind    Ron     &lt;NA&gt;    D     WI    3       NA         NA        
- 7 NO          Lamb    Conor   &lt;NA&gt;    D     PA    17      NA         NA        
- 8 NO          Lee     Susie   &lt;NA&gt;    D     NV    3       NA         NA        
- 9 NO          McAdams Ben     &lt;NA&gt;    D     UT    4       NA         NA        
-10 NO          McBath  Lucy    &lt;NA&gt;    D     GA    6       NA         NA        
-11 NO          O&#39;Hall… Tom     &lt;NA&gt;    D     AZ    1       NA         NA        
-12 NO          Peters… Collin  C.      D     MN    7       NA         NA        
-13 NO          Rose    Max     &lt;NA&gt;    D     NY    11      NA         NA        
-14 NO          Torres… Xochitl &lt;NA&gt;    D     NM    2       NA         NA        
-15 NO          Van Dr… Jeffer… &lt;NA&gt;    D     NJ    2       NA         NA        
-# … with 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>Same here, but we add an addition to the Republican Mitt Romney carried in 2012.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Filter for only results where a member is against impeachment, comes from a </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># district that President Trump won in 2016 (which is noted in the &quot;p16winningparty&quot; column),</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># and also comes from a district that Mitt Romney won in 2012 (&quot;p12winningparty&quot;).</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(p16winningparty <span class="sc">==</span> <span class="st">&quot;R&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(p12winningparty <span class="sc">==</span> <span class="st">&quot;R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 32
-  for_impeac…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
-1 NO           Brindi… Anthony &lt;NA&gt;    D     NY    22      NA         NA        
-2 NO           Cunnin… Joe     &lt;NA&gt;    D     SC    1       NA         NA        
-3 NO           Horn    Kendra  &lt;NA&gt;    D     OK    5       NA         NA        
-4 NO           Lamb    Conor   &lt;NA&gt;    D     PA    17      NA         NA        
-5 NO           McAdams Ben     &lt;NA&gt;    D     UT    4       NA         NA        
-6 NO           McBath  Lucy    &lt;NA&gt;    D     GA    6       NA         NA        
-7 NO           O&#39;Hall… Tom     &lt;NA&gt;    D     AZ    1       NA         NA        
-8 NO           Peters… Collin  C.      D     MN    7       NA         NA        
-9 NO           Torres… Xochitl &lt;NA&gt;    D     NM    2       NA         NA        
-# … with 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>For question #4, we are going to filter for members who are for impeachment but only during the the month of Sept in the year of 2019.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Filter for only results from September 2019 where a member is a YES for impeachment. </span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;YES&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_year <span class="sc">==</span> <span class="st">&quot;2019&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_month <span class="sc">==</span> <span class="st">&quot;9&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 76 × 32
-   for_impea…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
- 1 YES         Axne    Cynthia &lt;NA&gt;    D     IA    3       2019-09-24 NA        
- 2 YES         Bass    Karen   &lt;NA&gt;    D     CA    37      2019-09-24 NA        
- 3 YES         Bera    Ami     &lt;NA&gt;    D     CA    7       2019-09-24 NA        
- 4 YES         Bishop  Sanford D.      D     GA    2       2019-09-24 NA        
- 5 YES         Cartwr… Matt    &lt;NA&gt;    D     PA    8       2019-09-24 NA        
- 6 YES         Case    Ed      &lt;NA&gt;    D     HI    1       2019-09-24 NA        
- 7 YES         Castor  Kathy   &lt;NA&gt;    D     FL    14      2019-09-24 NA        
- 8 YES         Cisner… Gilbert &lt;NA&gt;    D     CA    39      2019-09-23 NA        
- 9 YES         Clyburn James   E.      D     SC    6       2019-09-24 NA        
-10 YES         Cooper  Jim     &lt;NA&gt;    D     TN    5       2019-09-24 NA        
-# … with 66 more rows, 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>For question #5, we will put the same for impeachment and the new one we would add is where Hillary Clinton won more than 70% votes in 2016 underneath the CLinton P percent column on the dataset.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Filter for only results where a member is a YES for impeachment and is from a district</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># where Clinton won more than 70 percent of the vote in 2016 (found in column &quot;clinton_percent&quot;)</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;YES&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(clinton_percent <span class="sc">&gt;</span> <span class="dv">70</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 55 × 32
-   for_impea…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
- 1 YES         Barrag… Nanette &lt;NA&gt;    D     CA    44      NA         2019-06-01
- 2 YES         Bass    Karen   &lt;NA&gt;    D     CA    37      2019-09-24 NA        
- 3 YES         Beyer   Donald  &lt;NA&gt;    D     VA    8       NA         2019-05-01
- 4 YES         Boyle   Brendan &lt;NA&gt;    D     PA    2       NA         2019-05-01
- 5 YES         Brown   Anthony &lt;NA&gt;    D     MD    4       2019-08-16 NA        
- 6 YES         Carden… Tony    &lt;NA&gt;    D     CA    29      2019-06-20 NA        
- 7 YES         Clarke  Yvette  D.      D     NY    9       2017-05-17 NA        
- 8 YES         Clay    William Lacy    D     MO    1       NA         2019-06-01
- 9 YES         Cohen   Steve   &lt;NA&gt;    D     TN    9       NA         2017-11-01
-10 YES         Cummin… Elijah  E.      D     MD    7       2019-09-24 NA        
-# … with 45 more rows, 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>For question #6, we are now going to use the term arrange for it to arrange the data from low to high. Hence, going to arrange for people who have a BA degree or higher.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Sort the entire dataframe based on the percentage of a district that has a </span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bachelor&#39;s degree or higher (&quot;pct_bachelors&quot;), from lowest to highest</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pct_bachelors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 235 × 32
-   for_impea…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
- 1 YES         Cox     TJ      &lt;NA&gt;    D     CA    21      2019-09-24 NA        
- 2 YES         Roybal… Lucille &lt;NA&gt;    D     CA    40      2019-07-23 NA        
- 3 YES         Garcia  Sylvia  &lt;NA&gt;    D     TX    29      2019-09-25 NA        
- 4 YES         Veasey  Marc    &lt;NA&gt;    D     TX    33      2019-09-24 NA        
- 5 YES         Costa   Jim     &lt;NA&gt;    D     CA    16      2019-09-24 NA        
- 6 YES         Barrag… Nanette &lt;NA&gt;    D     CA    44      NA         2019-06-01
- 7 YES         Serrano Jose    E.      D     NY    15      2019-07-29 NA        
- 8 YES         Vargas  Juan    &lt;NA&gt;    D     CA    51      NA         2019-05-01
- 9 YES         Gallego Ruben   &lt;NA&gt;    D     AZ    7       2019-07-11 NA        
-10 YES         Tlaib   Rashida &lt;NA&gt;    D     MI    13      2019-01-04 NA        
-# … with 225 more rows, 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>For question #7, arrange is the same as question #6 and the only thing I added along with it was those who are against (No) for impeachment.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7) Sort the just those who are NO on impeachment based on the percentage of a district that has a </span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bachelor&#39;s degree or higher (&quot;pct_bachelors&quot;), from lowest to highest</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pct_bachelors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 32
-   for_impea…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
- 1 NO          Cuellar Henry   &lt;NA&gt;    D     TX    28      NA         NA        
- 2 NO          Bustos  Cheri   &lt;NA&gt;    D     IL    17      NA         NA        
- 3 NO          Wilson  Freder… &lt;NA&gt;    D     FL    24      NA         NA        
- 4 NO          Gonzal… Vicente &lt;NA&gt;    D     TX    15      NA         NA        
- 5 NO          Sewell  Terri   &lt;NA&gt;    D     AL    7       NA         NA        
- 6 NO          Lawson  Al      &lt;NA&gt;    D     FL    5       NA         NA        
- 7 NO          Johnson Eddie   Bernice D     TX    30      NA         NA        
- 8 NO          Horsfo… Steven  &lt;NA&gt;    D     NV    4       NA         NA        
- 9 NO          Torres… Xochitl &lt;NA&gt;    D     NM    2       NA         NA        
-10 NO          Peters… Collin  C.      D     MN    7       NA         NA        
-# … with 16 more rows, 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>For question #8, the first two steps are exaclty the same from question #7 and the only thing that is added is the BA degrees that were below the national average from the data set.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8) Sort the just those who are NO on impeachment based on the percentage of a district that has a </span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bachelor&#39;s degree or higher (&quot;pct_bachelors&quot;), from lowest to highest.</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Then filter those records by only those whose bachelor&#39;s percentage is below the national average (found</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the &quot;pct_bachelors_compared_to_national&quot; column).</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pct_bachelors) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pct_bachelors_compared_to_national <span class="sc">==</span> <span class="st">&quot;BELOW&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 19 × 32
-   for_impea…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
- 1 NO          Cuellar Henry   &lt;NA&gt;    D     TX    28      NA         NA        
- 2 NO          Bustos  Cheri   &lt;NA&gt;    D     IL    17      NA         NA        
- 3 NO          Wilson  Freder… &lt;NA&gt;    D     FL    24      NA         NA        
- 4 NO          Gonzal… Vicente &lt;NA&gt;    D     TX    15      NA         NA        
- 5 NO          Sewell  Terri   &lt;NA&gt;    D     AL    7       NA         NA        
- 6 NO          Lawson  Al      &lt;NA&gt;    D     FL    5       NA         NA        
- 7 NO          Johnson Eddie   Bernice D     TX    30      NA         NA        
- 8 NO          Horsfo… Steven  &lt;NA&gt;    D     NV    4       NA         NA        
- 9 NO          Torres… Xochitl &lt;NA&gt;    D     NM    2       NA         NA        
-10 NO          Peters… Collin  C.      D     MN    7       NA         NA        
-11 NO          Golden  Jared   &lt;NA&gt;    D     ME    2       NA         NA        
-12 NO          O&#39;Hall… Tom     &lt;NA&gt;    D     AZ    1       NA         NA        
-13 NO          Brindi… Anthony &lt;NA&gt;    D     NY    22      NA         NA        
-14 NO          Kind    Ron     &lt;NA&gt;    D     WI    3       NA         NA        
-15 NO          Van Dr… Jeffer… &lt;NA&gt;    D     NJ    2       NA         NA        
-16 NO          Gabbard Tulsi   &lt;NA&gt;    D     HI    2       NA         NA        
-17 NO          McAdams Ben     &lt;NA&gt;    D     UT    4       NA         NA        
-18 NO          Schrad… Kurt    &lt;NA&gt;    D     OR    5       NA         NA        
-19 NO          Horn    Kendra  &lt;NA&gt;    D     OK    5       NA         NA        
-# … with 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>For question #9, we are back to just filtering. I just filtered the state NJ and filtered those members in NJ who are not for impeachment.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 9) Filter for only members from New Jersey who are NO on impeachment</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;NJ&quot;</span>, for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 32
-  for_impeac…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
-1 NO           Van Dr… Jeffer… &lt;NA&gt;    D     NJ    2       NA         NA        
-# … with 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>For question #10, we use filter and arrange together again. We filter people for impeachment but only for the ones for impeachment before 2019. Then, we arranged the highest Clinton voters from those years prior to 2019.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10) Filter for those who were YES on impeachment, with a declared date prior to 2019. So only</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># those with dates before 2019.  Then sort those so that the highest Clinton vote percentages are </span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># at the top.   </span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;YES&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_year <span class="sc">&lt;</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(clinton_percent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 32
-   for_impea…¹ last_…² first…³ middl…⁴ party state distr…⁵ date_exact date_app…⁶
-   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
- 1 YES         Huffman Jared   &lt;NA&gt;    D     CA    2       2017-12-06 NA        
- 2 YES         Sherman Brad    &lt;NA&gt;    D     CA    30      2017-07-12 NA        
- 3 YES         Moore   Gwen    &lt;NA&gt;    D     WI    4       2017-08-15 NA        
- 4 YES         Omar    Ilhan   &lt;NA&gt;    D     MN    5       NA         2018-12-01
- 5 YES         Cohen   Steve   &lt;NA&gt;    D     TN    9       NA         2017-11-01
- 6 YES         Green   Al      &lt;NA&gt;    D     TX    9       NA         2017-05-01
- 7 YES         Fudge   Marcia  L.      D     OH    11      NA         2017-11-01
- 8 YES         Clarke  Yvette  D.      D     NY    9       2017-05-17 NA        
- 9 YES         Gomez   Jimmy   &lt;NA&gt;    D     CA    34      2017-12-07 NA        
-10 YES         Evans   Dwight  &lt;NA&gt;    D     PA    3       2017-12-08 NA        
-# … with 23 more variables: date_comb &lt;date&gt;, date_month &lt;dbl&gt;,
-#   date_year &lt;dbl&gt;, margin_flag_2018 &lt;chr&gt;, flip_2018 &lt;chr&gt;, house_dist &lt;chr&gt;,
-#   keyrace_rating &lt;chr&gt;, median_income &lt;dbl&gt;,
-#   median_income_compared_to_national &lt;chr&gt;, median_age &lt;dbl&gt;,
-#   median_age_compared_to_national &lt;chr&gt;, pct_nonwhite &lt;dbl&gt;,
-#   pct_nonwhite_compared_to_national &lt;chr&gt;, pct_bachelors &lt;dbl&gt;,
-#   pct_bachelors_compared_to_national &lt;chr&gt;, rural_pop_above20pct &lt;chr&gt;, …</code></pre>
-</div>
-</div>
-<p>Question #11 you really had to look at the wording of the question carefully. When it says “holdout” for impeachment, that is just another way of saying who are for (yes) impeachment for filtering. Additionally, you have to filter the national GDP that was below from each respected districts. Lastly, we use a new term called nrow that will tell the number of rows it was in from the data set.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 11) Answer this question with a single numeric answer, and show the R code you</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># used to reach that answer: How many members in the dataset who are holdouts on impeachment</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># come from districts with a GDP below the national figure?</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: there&#39;s a function called nrow() that tells you how many rows are in a dataframe</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;YES&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gdp_above_national <span class="sc">==</span> <span class="st">&quot;BELOW&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 83</code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, pct_mcauliffe) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pct_mcauliffe)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="htmlwidget-1cfeb12ee2ddb1b84d9d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1cfeb12ee2ddb1b84d9d">{"x":{"filter":"none","vertical":false,"data":[["PETERSBURG CITY","CHARLOTTESVILLE CITY","RICHMOND CITY","FALLS CHURCH CITY","ARLINGTON COUNTY","ALEXANDRIA CITY","NORFOLK CITY","HAMPTON CITY","PORTSMOUTH CITY","FAIRFAX COUNTY","WILLIAMSBURG CITY","FAIRFAX CITY","ALBEMARLE COUNTY","LEXINGTON CITY","HARRISONBURG CITY","MANASSAS PARK CITY","FREDERICKSBURG CITY","NEWPORT NEWS CITY","EMPORIA CITY","HENRICO COUNTY","ROANOKE CITY","PRINCE WILLIAM COUNTY","FRANKLIN CITY","MARTINSVILLE CITY","LOUDOUN COUNTY","MANASSAS CITY","CHARLES CITY COUNTY","DANVILLE CITY","GREENSVILLE COUNTY","BRUNSWICK COUNTY","SUFFOLK CITY","STAUNTON CITY","WINCHESTER CITY","SUSSEX COUNTY","SURRY COUNTY","HOPEWELL CITY","NORTHAMPTON COUNTY","CHESTERFIELD COUNTY","JAMES CITY COUNTY","MONTGOMERY COUNTY","CHESAPEAKE CITY","VIRGINIA BEACH CITY","PRINCE EDWARD COUNTY","RADFORD CITY","STAFFORD COUNTY","LYNCHBURG CITY","NELSON COUNTY","FLUVANNA COUNTY","ESSEX COUNTY","CAROLINE COUNTY","WAYNESBORO CITY","LANCASTER COUNTY","YORK COUNTY","RAPPAHANNOCK COUNTY","SPOTSYLVANIA COUNTY","WESTMORELAND COUNTY","ACCOMACK COUNTY","CLARKE COUNTY","BUCKINGHAM COUNTY","DINWIDDIE COUNTY","CUMBERLAND COUNTY","HALIFAX COUNTY","NORTHUMBERLAND COUNTY","ISLE OF WIGHT COUNTY","SALEM CITY","NOTTOWAY COUNTY","SOUTHAMPTON COUNTY","KING &amp; QUEEN COUNTY","PRINCE GEORGE COUNTY","LUNENBURG COUNTY","FAUQUIER COUNTY","MECKLENBURG COUNTY","GOOCHLAND COUNTY","ROANOKE COUNTY","LOUISA COUNTY","ORANGE COUNTY","MIDDLESEX COUNTY","CULPEPER COUNTY","COVINGTON CITY","GREENE COUNTY","HANOVER COUNTY","KING GEORGE COUNTY","FREDERICK COUNTY","ROCKBRIDGE COUNTY","HENRY COUNTY","RICHMOND COUNTY","FLOYD COUNTY","MADISON COUNTY","CHARLOTTE COUNTY","NEW KENT COUNTY","AMHERST COUNTY","MATHEWS COUNTY","WARREN COUNTY","GLOUCESTER COUNTY","NORTON CITY","KING WILLIAM COUNTY","BRISTOL CITY","COLONIAL HEIGHTS CITY","GALAX CITY","AMELIA COUNTY","PULASKI COUNTY","ALLEGHANY COUNTY","HIGHLAND COUNTY","SHENANDOAH COUNTY","FRANKLIN COUNTY","BUENA VISTA CITY","PITTSYLVANIA COUNTY","ROCKINGHAM COUNTY","BOTETOURT COUNTY","POWHATAN COUNTY","POQUOSON CITY","AUGUSTA COUNTY","CAMPBELL COUNTY","GILES COUNTY","PAGE COUNTY","WASHINGTON COUNTY","BEDFORD COUNTY","BATH COUNTY","DICKENSON COUNTY","APPOMATTOX COUNTY","WYTHE COUNTY","PATRICK COUNTY","SMYTH COUNTY","GRAYSON COUNTY","CARROLL COUNTY","CRAIG COUNTY","WISE COUNTY","BUCHANAN COUNTY","RUSSELL COUNTY","BLAND COUNTY","TAZEWELL COUNTY","SCOTT COUNTY","LEE COUNTY"],[84.87,82.88,77.27,76.69,76.67,75.2,67.14,66.45,65.41,64.89,64.59,63.74,62.05,62.03,60.09,59.99,59.79,59.69,59.33,58.71,57.7,57.01,56.66,56.38,55.25,54.44,53.79,53.42,52.64,52.02,51.96,51.21,50.54,50.39,49.66,49.16,49.09,47.41,46.98,46.82,46.79,45.6,45.05,44.8,44.2,44.17,43.57,42.65,42.05,41.83,41.69,40.97,40.85,39.98,39.47,38.99,38.37,36.9,36.11,36.1,35.86,35.53,35.48,35.16,34.99,34.93,34.68,34.65,34.62,34.09,34.04,33.85,33.74,33.7,33.43,33.22,33.14,32.95,32.29,31.73,31.24,31,30.69,30.64,29.93,29.41,29.38,29.33,29.24,28.5,28.43,27.92,27.53,27.09,26.6,26.21,26.07,25.79,25.55,25.42,25.2,24.97,24.94,24.72,24.71,24.5,24.35,24.11,23.3,22.73,21.66,21.51,21.22,20.77,20.73,20.48,20.47,20.34,19.4,19.33,17.67,17.34,17.05,17.03,16.15,16,15.55,15.05,14.97,13.73,13.09,12.72,12.13]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>locality<\/th>\n      <th>pct_mcauliffe<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"paging":false,"dom":"tip","columnDefs":[{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
 
 <!-- -->
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -4541,165 +4199,97 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb31" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Analysis Walkthrough&quot;</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Sean Lee&quot;</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">    self-contained: true</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>We&#39;ll start by loading the libraries and install tidyverse.</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="co">#first we&#39;ll load our libraries</span></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="co">#make sure to install the tidyverse if it&#39;s not already installed</span></span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>We&#39;re going to look at some sample data from Texas on housing prices throughout the state. </span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>First, we will load the data.</span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="co"># run this line below load the data for this assignment</span></span>
-<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>impeach <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://docs.google.com/spreadsheets/d/e/2PACX-1vRh8d5JaDqBtByzNw2JZF3idaACobDhhk-p7chJoktA0HawELHFOvjQOqCpzGA4MGONvPlR7GASqW-K/pub?gid=1765341510&amp;single=true&amp;output=csv&quot;</span>)</span>
-<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>We are going to see a data file called &quot;impeach&quot; and see which members support impeachment or not.</span>
-<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a><span class="co"># it will load a dataframe called &quot;impeach,&quot; containing U.S. House Democrats</span></span>
-<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a><span class="co"># and whether they supported impeachment along with when they announced such support</span></span>
-<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a>Now use the R codes we have learned throughout class. </span>
-<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a>Note: You are going to see this symbol &quot;%&gt;%.&quot; This symbol is a pipe operator we use in R. It takes the output of one function and passes it into another function as an argument. This allows us to link a sequence of analysis steps.</span>
-<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a><span class="co"># FOR EACH OF THE QUESTIONS BELOW, WRITE YOUR WORKING R CODE TO RETURN THE REQUESTED RESULTS</span></span>
-<span id="cb31-48"><a href="#cb31-48" aria-hidden="true" tabindex="-1"></a><span class="co"># USE COMMENTS (PREFACED BY THE #) TO ACCOMPANY YOUR CODE TO EXPLAIN WHAT YOU&#39;RE DOING </span></span>
-<span id="cb31-49"><a href="#cb31-49" aria-hidden="true" tabindex="-1"></a><span class="co"># FOR EACH STEP</span></span>
-<span id="cb31-50"><a href="#cb31-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-51"><a href="#cb31-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a>From the data we are given, we will first find for the members who have favored in impeachment. Therefore, we will first write impeach that is the datasheet we will be using for this whole exercise. After that we will use the filter option and put &quot;no&quot; for impeachment and run it.</span>
-<span id="cb31-53"><a href="#cb31-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-56"><a href="#cb31-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-57"><a href="#cb31-57" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) The column &quot;for_impeachment&quot; indicates whether the member has publicly called for</span></span>
-<span id="cb31-58"><a href="#cb31-58" aria-hidden="true" tabindex="-1"></a><span class="co"># an impeachment inquiry. Filter to return only the ones where the answer is NO.    </span></span>
-<span id="cb31-59"><a href="#cb31-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-60"><a href="#cb31-60" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-61"><a href="#cb31-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>)</span>
-<span id="cb31-62"><a href="#cb31-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-63"><a href="#cb31-63" aria-hidden="true" tabindex="-1"></a>We do the same thing here with question #1, but we add Republican party that Trump won in 2016 and run it.</span>
-<span id="cb31-64"><a href="#cb31-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-67"><a href="#cb31-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-68"><a href="#cb31-68" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Filter to return only results where a member is both against impeachment, and comes from a </span></span>
-<span id="cb31-69"><a href="#cb31-69" aria-hidden="true" tabindex="-1"></a><span class="co"># district that President Trump won in 2016 (which is noted in the &quot;p16winningparty&quot; column)</span></span>
-<span id="cb31-70"><a href="#cb31-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-71"><a href="#cb31-71" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-72"><a href="#cb31-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-73"><a href="#cb31-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(p16winningparty <span class="sc">==</span> <span class="st">&quot;R&quot;</span>)</span>
-<span id="cb31-74"><a href="#cb31-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-75"><a href="#cb31-75" aria-hidden="true" tabindex="-1"></a>Same here, but we add an addition to the Republican Mitt Romney carried in 2012.</span>
-<span id="cb31-76"><a href="#cb31-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-79"><a href="#cb31-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-80"><a href="#cb31-80" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Filter for only results where a member is against impeachment, comes from a </span></span>
-<span id="cb31-81"><a href="#cb31-81" aria-hidden="true" tabindex="-1"></a><span class="co"># district that President Trump won in 2016 (which is noted in the &quot;p16winningparty&quot; column),</span></span>
-<span id="cb31-82"><a href="#cb31-82" aria-hidden="true" tabindex="-1"></a><span class="co"># and also comes from a district that Mitt Romney won in 2012 (&quot;p12winningparty&quot;).</span></span>
-<span id="cb31-83"><a href="#cb31-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-84"><a href="#cb31-84" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-85"><a href="#cb31-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-86"><a href="#cb31-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(p16winningparty <span class="sc">==</span> <span class="st">&quot;R&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-87"><a href="#cb31-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(p12winningparty <span class="sc">==</span> <span class="st">&quot;R&quot;</span>)</span>
-<span id="cb31-88"><a href="#cb31-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-89"><a href="#cb31-89" aria-hidden="true" tabindex="-1"></a>For question #4, we are going to filter for members who are for impeachment but only during the the month of Sept in the year of 2019.</span>
-<span id="cb31-90"><a href="#cb31-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-93"><a href="#cb31-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-94"><a href="#cb31-94" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Filter for only results from September 2019 where a member is a YES for impeachment. </span></span>
-<span id="cb31-95"><a href="#cb31-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-96"><a href="#cb31-96" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-97"><a href="#cb31-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;YES&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-98"><a href="#cb31-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_year <span class="sc">==</span> <span class="st">&quot;2019&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-99"><a href="#cb31-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_month <span class="sc">==</span> <span class="st">&quot;9&quot;</span>)</span>
-<span id="cb31-100"><a href="#cb31-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-101"><a href="#cb31-101" aria-hidden="true" tabindex="-1"></a>For question #5, we will put the same for impeachment and the new one we would add is where Hillary Clinton won more than 70% votes in 2016 underneath the CLinton P percent column on the dataset. </span>
-<span id="cb31-102"><a href="#cb31-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-105"><a href="#cb31-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-106"><a href="#cb31-106" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Filter for only results where a member is a YES for impeachment and is from a district</span></span>
-<span id="cb31-107"><a href="#cb31-107" aria-hidden="true" tabindex="-1"></a><span class="co"># where Clinton won more than 70 percent of the vote in 2016 (found in column &quot;clinton_percent&quot;)</span></span>
-<span id="cb31-108"><a href="#cb31-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-109"><a href="#cb31-109" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-110"><a href="#cb31-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;YES&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-111"><a href="#cb31-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(clinton_percent <span class="sc">&gt;</span> <span class="dv">70</span>)</span>
-<span id="cb31-112"><a href="#cb31-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-113"><a href="#cb31-113" aria-hidden="true" tabindex="-1"></a>For question #6, we are now going to use the term arrange for it to arrange the data from low to high. Hence, going to arrange for people who have a BA degree or higher.</span>
-<span id="cb31-114"><a href="#cb31-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-117"><a href="#cb31-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-118"><a href="#cb31-118" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Sort the entire dataframe based on the percentage of a district that has a </span></span>
-<span id="cb31-119"><a href="#cb31-119" aria-hidden="true" tabindex="-1"></a><span class="co"># bachelor&#39;s degree or higher (&quot;pct_bachelors&quot;), from lowest to highest</span></span>
-<span id="cb31-120"><a href="#cb31-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-121"><a href="#cb31-121" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-122"><a href="#cb31-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pct_bachelors)</span>
-<span id="cb31-123"><a href="#cb31-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-124"><a href="#cb31-124" aria-hidden="true" tabindex="-1"></a>For question #7, arrange is the same as question #6 and the only thing I added along with it was those who are against (No) for impeachment.</span>
-<span id="cb31-125"><a href="#cb31-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-128"><a href="#cb31-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-129"><a href="#cb31-129" aria-hidden="true" tabindex="-1"></a><span class="co"># 7) Sort the just those who are NO on impeachment based on the percentage of a district that has a </span></span>
-<span id="cb31-130"><a href="#cb31-130" aria-hidden="true" tabindex="-1"></a><span class="co"># bachelor&#39;s degree or higher (&quot;pct_bachelors&quot;), from lowest to highest</span></span>
-<span id="cb31-131"><a href="#cb31-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-132"><a href="#cb31-132" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-133"><a href="#cb31-133" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-134"><a href="#cb31-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pct_bachelors)</span>
-<span id="cb31-135"><a href="#cb31-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-136"><a href="#cb31-136" aria-hidden="true" tabindex="-1"></a>For question #8, the first two steps are exaclty the same from question #7 and the only thing that is added is the BA degrees that were below the national average from the data set. </span>
-<span id="cb31-137"><a href="#cb31-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-140"><a href="#cb31-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-141"><a href="#cb31-141" aria-hidden="true" tabindex="-1"></a><span class="co"># 8) Sort the just those who are NO on impeachment based on the percentage of a district that has a </span></span>
-<span id="cb31-142"><a href="#cb31-142" aria-hidden="true" tabindex="-1"></a><span class="co"># bachelor&#39;s degree or higher (&quot;pct_bachelors&quot;), from lowest to highest.</span></span>
-<span id="cb31-143"><a href="#cb31-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Then filter those records by only those whose bachelor&#39;s percentage is below the national average (found</span></span>
-<span id="cb31-144"><a href="#cb31-144" aria-hidden="true" tabindex="-1"></a><span class="co"># in the &quot;pct_bachelors_compared_to_national&quot; column).</span></span>
-<span id="cb31-145"><a href="#cb31-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-146"><a href="#cb31-146" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-147"><a href="#cb31-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-148"><a href="#cb31-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pct_bachelors) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-149"><a href="#cb31-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pct_bachelors_compared_to_national <span class="sc">==</span> <span class="st">&quot;BELOW&quot;</span>)</span>
-<span id="cb31-150"><a href="#cb31-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-151"><a href="#cb31-151" aria-hidden="true" tabindex="-1"></a>For question #9, we are back to just filtering. I just filtered the state NJ and filtered those members in NJ who are not for impeachment.</span>
-<span id="cb31-152"><a href="#cb31-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-155"><a href="#cb31-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-156"><a href="#cb31-156" aria-hidden="true" tabindex="-1"></a><span class="co"># 9) Filter for only members from New Jersey who are NO on impeachment</span></span>
-<span id="cb31-157"><a href="#cb31-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-158"><a href="#cb31-158" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-159"><a href="#cb31-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;NJ&quot;</span>, for_impeachment <span class="sc">==</span> <span class="st">&quot;NO&quot;</span>)</span>
-<span id="cb31-160"><a href="#cb31-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-161"><a href="#cb31-161" aria-hidden="true" tabindex="-1"></a>For question #10, we use filter and arrange together again. We filter people for impeachment but only for the ones for impeachment before 2019. Then, we arranged the highest Clinton voters from those years prior to 2019. </span>
-<span id="cb31-162"><a href="#cb31-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-165"><a href="#cb31-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-166"><a href="#cb31-166" aria-hidden="true" tabindex="-1"></a><span class="co"># 10) Filter for those who were YES on impeachment, with a declared date prior to 2019. So only</span></span>
-<span id="cb31-167"><a href="#cb31-167" aria-hidden="true" tabindex="-1"></a><span class="co"># those with dates before 2019.  Then sort those so that the highest Clinton vote percentages are </span></span>
-<span id="cb31-168"><a href="#cb31-168" aria-hidden="true" tabindex="-1"></a><span class="co"># at the top.   </span></span>
-<span id="cb31-169"><a href="#cb31-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-170"><a href="#cb31-170" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-171"><a href="#cb31-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;YES&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-172"><a href="#cb31-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_year <span class="sc">&lt;</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-173"><a href="#cb31-173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(clinton_percent)</span>
-<span id="cb31-174"><a href="#cb31-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb31-175"><a href="#cb31-175" aria-hidden="true" tabindex="-1"></a>Question #11 you really had to look at the wording of the question carefully. When it says &quot;holdout&quot; for impeachment, that is just another way of saying who are for (yes) impeachment for filtering. Additionally, you have to filter the national GDP that was below from each respected districts. Lastly, we use a new term called nrow that will tell the number of rows it was in from the data set. </span>
-<span id="cb31-176"><a href="#cb31-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-179"><a href="#cb31-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb31-180"><a href="#cb31-180" aria-hidden="true" tabindex="-1"></a><span class="co"># 11) Answer this question with a single numeric answer, and show the R code you</span></span>
-<span id="cb31-181"><a href="#cb31-181" aria-hidden="true" tabindex="-1"></a><span class="co"># used to reach that answer: How many members in the dataset who are holdouts on impeachment</span></span>
-<span id="cb31-182"><a href="#cb31-182" aria-hidden="true" tabindex="-1"></a><span class="co"># come from districts with a GDP below the national figure?</span></span>
-<span id="cb31-183"><a href="#cb31-183" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: there&#39;s a function called nrow() that tells you how many rows are in a dataframe</span></span>
-<span id="cb31-184"><a href="#cb31-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-185"><a href="#cb31-185" aria-hidden="true" tabindex="-1"></a>impeach <span class="sc">%&gt;%</span> </span>
-<span id="cb31-186"><a href="#cb31-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(for_impeachment <span class="sc">==</span> <span class="st">&quot;YES&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-187"><a href="#cb31-187" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gdp_above_national <span class="sc">==</span> <span class="st">&quot;BELOW&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-188"><a href="#cb31-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span>
-<span id="cb31-189"><a href="#cb31-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Virginia Election Project&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Sean Lee&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    self-contained: true</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE, warning=FALSE, message=FALSE}</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">#load saved joined data file from previous script</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>joined_vacomparison <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">&quot;processed_data&quot;</span>, <span class="st">&quot;joined_vacomparison.rds&quot;</span>))</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>joined_vacomparison <span class="sc">%&gt;%</span> </span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">yungkin_pctadv_over_trump =</span> pct_youngkin <span class="sc">-</span> trump_pct</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(yungkin_pctadv_over_trump)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="fu"># Comparing Virgnia Gov vs. Prez</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>Section 1</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="co">#table #1</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="ot">&lt;-</span> joined_vacomparison <span class="sc">%&gt;%</span> </span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">D_vs_R =</span> pct_mcauliffe <span class="sc">-</span> pct_youngkin,</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">Biden_vs_Trump =</span> biden_pct <span class="sc">-</span> trump_pct</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>Section 2</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, D_vs_R) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>Section 3</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, Biden_vs_Trump) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>Section 4 </span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, Biden_vs_Trump) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Biden_vs_Trump)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>Section 5 </span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, pct_youngkin) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pct_youngkin)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>Section 6 </span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>R_Dtable <span class="sc">%&gt;%</span> </span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(locality, pct_mcauliffe) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pct_mcauliffe)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>                <span class="at">options =</span> <span class="fu">list</span>(<span class="at">searching =</span> <span class="cn">FALSE</span>, <span class="at">paging =</span> <span class="cn">FALSE</span>, <span class="at">dom =</span> <span class="st">&quot;tip&quot;</span>))</span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
