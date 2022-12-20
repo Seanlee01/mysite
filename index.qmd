@@ -16,11 +16,11 @@ about:
       href: https://www.linkedin.com/in/sean-lee-06baa71b5/
 ---
 
-Sean Lee is a current Junior at George Washington University majoring in journalism and mass communications & business at the School of Media and Public Affairs (SMPA) and the business school. I am originally from Los Angeles, CA but I am now residing in Washington, DC for college. My interest is within the PR field. This includes strategic communications, lobbying, public affairs, marketing, crisis communications, digital strategy, and getting clear messaging out to the audience.I have prior experience working in PR firms, non-profits, political campaigns, local & state government offices, and administrative work.
+Sean Lee is a current Junior at George Washington University majoring in journalism and mass communications & business at the School of Media and Public Affairs (SMPA) and the business school. I am originally from Los Angeles, CA but I am now residing in Washington, DC for college. My interest is within the PR field. This includes strategic communications, lobbying, public affairs, marketing, crisis communications, digital strategy, and getting clear messaging out to the audience. I have prior experience working in PR firms, non-profits, political campaigns, local & state government offices, and administrative work.
 
-My plan after graduation is to go to MBA grad school and go into the private sector as a PR Senior Associate. During my free time, I enjoy playing video games, watching soccer, playing volleyball, visiting presidential museums, and engaging in the news! 
+My plan after graduation is to go to MBA grad school and go into the private sector as a PR Senior Associate. During my free time, I enjoy playing video games, watching soccer, playing volleyball, visiting presidential museums, and engaging in the news!
 
-Hope to get in touch with you soon! 
+Hope to get in touch with you soon!
 
 ## Education
 
@@ -40,7 +40,7 @@ Office of Rep. Young Kim (R-CA)
 
 Office of CA State Asm. Richard Bloom (D-CA)
 
-Center for Asian Americans United for Self Empowerment (CAUSE) 
+Center for Asian Americans United for Self Empowerment (CAUSE)
 
 GW-TV
 
@@ -52,20 +52,20 @@ Premiere Pro
 
 Asana
 
-Agorapulse 
+Agorapulse
 
-Salesforce Marketing Cloud 
+Salesforce Marketing Cloud
 
 Acoustic Software
 
-G Suite 
+G Suite
 
-Magix Soundforge 
+Magix Soundforge
 
-Microsoft 
+Microsoft
 
-R Studio 
+R Studio
 
-SPSS 
+SPSS
 
 Slack
