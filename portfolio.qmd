@@ -2,7 +2,7 @@
 title: "Portfolio"
 ---
 
-Hi here is my portfolio page!
+Hi here is my portfolio page! The URL links to them are down below:
 
 -   [A promising path in politics](https://www.youtube.com/watch?v=s38N27Mu2OU&t=1024s)
 
